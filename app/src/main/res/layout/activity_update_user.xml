@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/baseCoordinatorUpdate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".UpdateUserActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_update_user"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+    </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:weightSum="1">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_weight="0.6">
+
+           <de.hdodenhof.circleimageview.CircleImageView
+               android:id="@+id/circleAvatarMod"
+               android:layout_width="120dp"
+               android:layout_height="120dp"
+               android:layout_alignParentBottom="true"
+               android:layout_centerInParent="true"
+               app:civ_border_width="0dp"
+               app:civ_border_color="@color/grayCircle"
+               android:src="@drawable/avataruser"/>
+       </RelativeLayout>
+
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_weight="0.4"
+           android:fillViewport="true">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical"
+               android:padding="@dimen/padding_horizontal_login">
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/label_user_msg"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:theme="@style/EditTextGray">
+
+                   <android.support.design.widget.TextInputEditText
+                       android:id="@+id/textUserModify"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:inputType="textPersonName"
+                       android:hint="Usuario"/>
+
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/label_name_msg"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:theme="@style/EditTextGray">
+
+                   <android.support.design.widget.TextInputEditText
+                       android:id="@+id/textNameModify"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:inputType="textPersonName"
+                       android:hint="Nombre Completo"/>
+
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/label_email_msg"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:theme="@style/EditTextGray">
+
+                   <android.support.design.widget.TextInputEditText
+                       android:id="@+id/textEmailModify"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:inputType="textEmailAddress"
+                       android:hint="Correo Electronico"/>
+
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/label_phone_msg"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:theme="@style/EditTextGray">
+
+                   <android.support.design.widget.TextInputEditText
+                       android:id="@+id/textPhoneModify"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:inputType="phone"
+                       android:hint="Telefono"/>
+
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/label_address_msg"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:theme="@style/EditTextGray">
+
+                   <android.support.design.widget.TextInputEditText
+                       android:id="@+id/textAddressModify"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:inputType="textPostalAddress"
+                       android:hint="Direccion"/>
+
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/label_password_msg"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:theme="@style/EditTextGray">
+
+                   <android.support.design.widget.TextInputEditText
+                       android:id="@+id/textPasswordModify"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:inputType="textPassword"
+                       android:hint="Contraseña"/>
+
+               </android.support.design.widget.TextInputLayout>
+
+           </LinearLayout>
+
+       </ScrollView>
+
+       <LinearLayout
+           android:orientation="horizontal"
+           android:layout_alignParentBottom="true"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <Button
+               android:id="@+id/btnModify"
+               android:text="Modificar"
+               android:textColor="@android:color/white"
+               android:layout_weight="1"
+               android:layout_margin="8dp"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:theme="@style/RaisedButtonDarkLogin"
+               android:shadowColor="@color/black"/>
+
+           <Button
+               android:id="@+id/btnDelete"
+               android:text="Eliminar mi Cuenta"
+               android:textColor="@android:color/white"
+               android:layout_weight="1"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_margin="8dp"
+               android:theme="@style/RaisedButtonDarkRegistro"
+               android:shadowColor="@color/black"/>
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

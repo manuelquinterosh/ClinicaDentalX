@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">ClinicaDentalX</string>
+    <string name="codeAppointment">COD:</string>
+    <string name="code">10001</string>
+    <string name="dateAppointment">01/01/1993</string>
+    <string name="slogan">Ahora puedes hacer tu cita y llevar el tratamiento desde tu movil. Tenemos los mejores medicos especializados en las diferentes ramas de la odontologia.</string>
+
+    <!--Login-->
+    <string name="nombreUsuario">Nombre</string>
+    <string name="emailUsuario">E-mail</string>
+    <string name="direccionUsuario">Direccion</string>
+    <string name="passwordUsuario">Password</string>
+    <string name="btnRegistrar">REGISTRAR</string>
+    <string name="eresMiembro">Ya eres mienbro? Ingresa</string>
+    <string name="hint_username">Nombre de usuario</string>
+    <string name="text_button_createaccount">Unirse</string>
+    <string name="hint_passwordLogin">Contraseña</string>
+    <string name="text_button_login">Login</string>
+    <string name="dont_have_account">No tienes cuenta?,</string>
+    <string name="create_here">crea una aqui</string>
+
+    <!--Menu-->
+    <string name="citas">Citas</string>
+    <string name="revisar_tus_citas">Revisar tus citas</string>
+    <string name="perfil">Perfil</string>
+    <string name="verificar_mi_perfil">Verificar mi perfil</string>
+    <string name="doctor">Doctor</string>
+    <string name="nuestrosDoctores">Nuestros doctores disponibles</string>
+    <string name="tratamiento">Tratamiento</string>
+    <string name="quieres_seguir_un_tratamiento">Quieres seguir un tratamiento?</string>
+    <string name="promociones">Promociones</string>
+    <string name="location">Encuentranos</string>
+    <string name="treatment">Tratamientos</string>
+    <string name="fecha">01/01/1993</string>
+    <string name="error_campo_vacio">Password requerida</string>
+    <string name="error_password_invalida">Contraseña es invalida.</string>
+    <string name="error_usuario_campo">Su usuario es invalido</string>
+    <string name="tratatamiento_nombre">Implantologia</string>
+    <string name="title_activity_maps">Map</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Info mapas-->
+    <string name="MoncaguaInfo">Moncagua es un poblado de origen prehispánico lenca. Para el año 1550 tenía unos 500 habitantes; y en el año 1770, Pedro Cortés y Larraz refiere que tenía unos "849 indígenas repartidos en 86 familias y de 309 ladinos distribuidos en 58 familias".</string>
+    <string name="ChapeltiqueInfo">Chapeltique es un municipio del departamento de San Miguel, El Salvador. De acuerdo al censo oficial de 2007, tiene una población de 10.728 habitantes.</string>
+    <string name="BarriosInfo">Ciudad Barrios es un municipio de El Salvador, perteneciente al departamento de San Miguel, en la zona oriental, a 160 km al oriente de la capital, San Salvador.</string>
+    <string name="SanMiguelInfo">San Miguel es una ciudad y municipio del departamento de San Miguel, El Salvador. Es también la cabecera departamental del departamento homónimo. Históricamente ha sido y sigue siendo, por casi 500 años ya, la ciudad más importante de la zona oriental del país.</string>
+
+    <string name="google_maps_key">AIzaSyDtIsgOSQH5hSsJrYFRTu-fic9ClFPMS_A</string>
+
+</resources>

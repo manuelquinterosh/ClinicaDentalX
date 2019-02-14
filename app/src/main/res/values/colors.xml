@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--Estados de citas medicas-->
+    <color name="cancelledStatus">#e57373</color>
+    <color name="activeStatus">#64B5F6</color>
+    <color name="completedStatus">#81C784</color>
+
+    <!--Para panel-->
+    <color name="white">#ffffff</color>
+    <color name="black">#2d2d2d</color>
+
+    <!--Efecto de los botones-->
+    <color name="btnIniciarSession">#39796b</color> <!--Color inicial-->
+    <color name="btnFondoIniciarSessionPress">#1976D2</color>
+    <color name="btnRegisterColor">#a9d440</color>
+    <color name="btnFondoRegisterPress">#1976D2</color>
+
+    <!--Login-->
+    <color name="editTextColorWhite">#FFFFFF</color>
+
+    <color name="editTextColorBlack">#000000</color>
+
+    <!--MENU-->
+    <color name="colorGrapeFruit">#ED5565</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrapeFruitDark">#DA4453</color>
+    <color name="colorBitterSweet">#FC6E51</color>
+    <color name="colorBitterSweetDark">#E9573F</color>
+    <color name="colorFlower">#FFCE54</color>
+    <color name="colorFlowerDark">#F68B42</color>
+    <color name="colorGrass">#A0D468</color>
+    <color name="colorGrassDark">#8CC152</color>
+    <color name="colorBlueJeans">#509CEC</color>
+    <color name="colorBlueJeansDark">#4A89DC</color>
+    <color name="colorLavander">#AC92EC</color>
+    <color name="colorLavanderDark">#967ADC</color>
+    <color name="colorMint">#48CFAD</color>
+    <color name="colorMintDark">#37BC9B</color>
+    <color name="colorAqua">#4FC1E9</color>
+    <color name="colorAquaDark">#3BAFDA</color>
+    <color name="colorPinkRose">#EC87C0</color>
+    <color name="colorPinkRoseDark">#D770AD</color>
+
+
+    <!--colores-->
+    <color name="edittextColorGray">#7C7A7A</color>
+
+    <!--Para perfil-->
+    <color name="address">#2F7092</color>
+    <color name="followers">#0D5D98</color>
+    <color name="headings">#3797CF</color>
+    <color name="solidCircle">#AAFFFFFF</color>
+    <color name="circleBorder">#50FFFFFF</color>
+    <color name="gradEnd">#67EFC8</color>
+    <color name="gradStart">#63C9FF</color>
+    <color name="followersBg">#65DCE5</color>
+    <color name="followingBg">#49BEFF</color>
+    <color name="grey">#E5E5E5</color>
+
+
+    <!--Para registro-->
+    <color name="grayCircle">#000000</color>
+
+    <color name="gradDiaEnd">#67ef94</color>
+    <color name="gradDiaStart">#43995f</color>
+
+    <!--Colo de bottom nav-->
+    <color name="bottom_nav_color_menu">#E5D5BF</color>
+    <color name="bottom_menu_whiteTrans">#eeeeee</color>
+
+    <color name="bottom_nav_background_menu">#5A5A5A</color>
+
+    
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Contact.fragment.FacebookFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <WebView
+        android:id="@+id/webFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+   <!-- <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Facebook"
+        android:textColor="@color/colorPrimary"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:gravity="center"/>-->
+
+</FrameLayout>

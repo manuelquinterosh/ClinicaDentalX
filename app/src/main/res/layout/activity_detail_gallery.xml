@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_detail_galery"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Gallery.DetailPortfolioActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/detail_galery_detail"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:elevation="0dp"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        />
+
+</android.support.design.widget.CoordinatorLayout>

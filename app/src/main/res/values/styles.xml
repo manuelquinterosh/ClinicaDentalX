@@ -1,0 +1,69 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="RaisedButtonDarkLogin" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorButtonNormal">@color/btnIniciarSession
+        </item>  <!--Cuando el boton este normal-->
+        <item name="colorControlHighlight">@color/btnFondoIniciarSessionPress
+        </item>  <!--Cuando el boton este presionado-->
+        <item name="android:textColor">@android:color/white
+        </item>   <!--Para pintar las letras de este boton-->
+
+    </style>
+
+    <style name="RaisedButtonDarkRegistro" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">@color/btnRegisterColor
+        </item>  <!--Cuando el boton este normal-->
+        <item name="colorControlHighlight">@color/btnFondoRegisterPress
+        </item>  <!--Cuando el boton este presionado-->
+        <item name="android:textColor">@android:color/white
+        </item>   <!--Para pintar las letras de este boton-->
+    </style>
+
+    <style name="WhiteProgress">
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
+    <style name="EditTextWhite" parent="AppTheme">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@android:color/white</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="EditTextGray" parent="AppTheme">
+        <item name="colorAccent">@android:color/darker_gray</item>
+        <item name="android:textColorHint">@color/edittextColorGray</item>
+        <item name="colorControlNormal">@android:color/darker_gray</item>
+        <item name="colorControlActivated">@android:color/darker_gray</item>
+        <item name="colorControlHighlight">@android:color/darker_gray</item>
+    </style>
+
+
+    <style name="RaisedLinearLayout" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">@color/btnRegisterColor
+        </item>  <!--Cuando el boton este normal-->
+        <item name="colorControlHighlight">@color/btnFondoRegisterPress
+        </item>  <!--Cuando el boton este presionado-->
+        <item name="android:textColor">@android:color/white
+        </item>   <!--Para pintar las letras de este boton-->
+    </style>
+
+</resources>

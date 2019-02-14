@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "325095250825",
+    "firebase_url": "https://clinicpp-16dfe.firebaseio.com",
+    "project_id": "clinicpp-16dfe",
+    "storage_bucket": "clinicpp-16dfe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325095250825:android:492a86c0da4e6b15",
+        "android_client_info": {
+          "package_name": "com.developer.manuelquinteros.clinicadentalx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "325095250825-jv9u8lo4dvl0pelc8h4ipckv371s5c7q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.developer.manuelquinteros.clinicadentalx",
+            "certificate_hash": "e55122381367948382a9c38ea30138c852eaaa79"
+          }
+        },
+        {
+          "client_id": "325095250825-cb8ehgt021a4op0i68vjgc7vga7st7nh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8tB7G48_5E_UmVCgijEJhN5r-SOoAB6w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "325095250825-cb8ehgt021a4op0i68vjgc7vga7st7nh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
