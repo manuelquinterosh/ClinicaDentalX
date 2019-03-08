@@ -16,13 +16,14 @@ import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
 
 import com.developer.manuelquinteros.clinicadentalx.Contact.ContactActivity;
+import com.developer.manuelquinteros.clinicadentalx.FCM.PromotionsActivity;
 import com.developer.manuelquinteros.clinicadentalx.Gallery.PortfolioActivity;
 import com.developer.manuelquinteros.clinicadentalx.Maps.MapsActivity;
 import com.developer.manuelquinteros.clinicadentalx.prefs.UserSessionManager;
 
 public class MainActivity extends AppCompatActivity {
 
-    RelativeLayout goToAppointment, goToTreatment, goToLocation, goToContact, goToProfile, goToPortfolio;
+    RelativeLayout goToAppointment, goToPromotions, goToLocation, goToContact, goToProfile, goToPortfolio;
 
     private ViewFlipper viewFlipper;
     private Animation fadeIn, fadeOut;
@@ -52,12 +53,17 @@ public class MainActivity extends AppCompatActivity {
 
         session = new UserSessionManager(getApplicationContext());
 
+        // Redirección al Login
+        if (!session.isUserLogedIn()) {
+            logoutState();
+        }
+
         goToAppointment = (RelativeLayout) findViewById(R.id.goAppointment);
-        goToTreatment = (RelativeLayout)findViewById(R.id.goTreatment);
+        goToPromotions = (RelativeLayout)findViewById(R.id.goPromotions);
         goToLocation = (RelativeLayout) findViewById(R.id.goLocation);
         goToContact = (RelativeLayout) findViewById(R.id.goContact);
         goToProfile = (RelativeLayout) findViewById(R.id.goProfile);
-        goToPortfolio = (RelativeLayout) findViewById(R.id.goGallery);
+        goToPortfolio = (RelativeLayout) findViewById(R.id.goPortfolio);
 
         Logout = (Button) findViewById(R.id.btnLogout);
 
@@ -77,11 +83,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        goToTreatment.setOnClickListener(new View.OnClickListener() {
+        goToPromotions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent intent = new Intent(MainActivity.this, RecordarMedicamentoActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, PromotionsActivity.class);
+                startActivity(intent);
             }
         });
 

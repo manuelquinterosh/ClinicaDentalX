@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notificacion_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="?android:attr/textAppearanceLarge"
+    android:orientation="vertical">
+
+
+
+    <TextView
+        android:id="@+id/discount"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:text="100%"
+        android:gravity="center"
+        android:textSize="100dp"
+        android:textColor="#FFFFFF"
+        android:background="#B9B9B9"
+       />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorPrimary"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margen_estandar"
+        android:paddingEnd="@dimen/margen_estandar"
+        android:paddingRight="@dimen/margen_izquierda_contenido"
+        android:paddingLeft="@dimen/margen_izquierda_contenido"
+        android:paddingTop="@dimen/margen_estandar">
+
+        <TextView
+            android:id="@+id/titulo"
+            style="@style/TextAppearance.AppCompat.Title.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textIsSelectable="true"/>
+
+        <TextView
+            android:id="@+id/fecha"
+            style="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/margen_estandar"
+        android:paddingTop="@dimen/margen_estandar"
+        android:scrollbarStyle="outsideOverlay">
+
+        <TextView
+            android:id="@+id/contenido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margen_izquierda_contenido"
+            android:paddingStart="@dimen/margen_izquierda_contenido"
+            android:paddingEnd="@dimen/margen_estandar"
+            android:paddingRight="@dimen/margen_estandar"
+            android:text="Contenido"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+    </ScrollView>
+
+</LinearLayout>

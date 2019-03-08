@@ -102,6 +102,7 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
         });
 
 
+
     }
 
     @Override
@@ -137,12 +138,12 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
                         listAppointment.add(appointment);
 
                         }
-                        if (listAppointment.size() == 0){
-                            emptyList();
-                        } else {
-                            dateList();
+                       // if (listAppointment.size() == 0){
+                        //    emptyList();
+                        //} else {
+                          //  dateList();
                             setupRecyclerView(listAppointment);
-                        }
+                    //    }
 
 
                 } catch (JSONException e) {
@@ -167,8 +168,31 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
     private void setupRecyclerView(List<Appointment> list) {
         AppointmentAdapter adapter = new AppointmentAdapter(this, list, this);
         recyclerAppointment.setAdapter(adapter);
-
         adapter.swapItems(list);
+
+        //Mostrar un mensaje si la lista esta vacía [cuando carga la app]
+        int numItems =  adapter.getItemCount();
+        if(numItems == 0)
+            emptyList();
+        else
+            dateList();
+
+        //Mostar un mensaje cuando se utiliza los metodos add, remo, set del adaptador RecyclerView
+        //Cuenta con vacior metodos @Override utiliza el que je ajuste a tu necesidad
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+
+            @Override
+            public void onItemRangeChanged(int positionStart, int itemCount) { //Solo se invoca cuando se utiliza la función [ejemplo] notifyItemRangeChanged(position, mDatos.size);
+                super.onItemRangeChanged(positionStart, itemCount);
+
+                if(itemCount == 0)
+                    emptyList();
+                else
+                    dateList();
+            }
+
+        });
+
     }
 
     private void showLoadingIndicator(final boolean show){
@@ -211,6 +235,7 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
     @Override
     public void onCancelAppointment(Appointment canceledAppointment) {
         eliminarCita(canceledAppointment.getIdcitas());
+
     }
 
     @Override
@@ -282,5 +307,6 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
         mEmptyView.setVisibility(View.GONE);
         recyclerAppointment.setVisibility(View.VISIBLE);
     }
+
 
 }

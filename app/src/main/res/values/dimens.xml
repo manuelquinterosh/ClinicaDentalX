@@ -13,4 +13,10 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="list_item_padding">8dp</dimen>
+
+    <dimen name="margen_estandar">16dp</dimen>
+    <dimen name="altura_item">122dp</dimen>
+    <dimen name="margen_izquierda_contenido">72dp</dimen>
+    <dimen name="ancho_miniatura">120dp</dimen>
+    <dimen name="ancho_panel_lista">512dp</dimen>
 </resources>

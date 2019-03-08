@@ -2,14 +2,15 @@ package com.developer.manuelquinteros.clinicadentalx;
 
 
 import android.app.DatePickerDialog;
-import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.RingtoneManager;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -49,7 +50,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddAppointmentActivity extends AppCompatActivity {
-
+    public static final String CHANNEL_ID = "exampleChannel";
     String url_citar = "https://codonticapp.000webhostapp.com/wsJSONsaveAppointment.php";
 
 
@@ -372,7 +373,64 @@ public class AddAppointmentActivity extends AppCompatActivity {
     }
 
     protected void displayNotification() {
-        Intent i = new Intent(this, MainActivity.class);
+
+        String CHANNEL_ID = "my_channel_01";
+        CharSequence name = "my_channel";
+        String Description = "This is my channel";
+
+        int NOTIFICATION_ID = 234;
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+            mChannel.setDescription(Description);
+            mChannel.enableLights(true);
+            mChannel.setLightColor(Color.RED);
+            mChannel.enableVibration(true);
+            mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+            mChannel.setShowBadge(true);
+
+            if (notificationManager != null) {
+
+                notificationManager.createNotificationChannel(mChannel);
+            }
+
+        }
+
+
+        Intent resultIntent = new Intent(this, MainActivity.class);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+   //https://github.com/shubhambathe1/NotificationDemoApp/tree/master/app/src/main/java/theaxontech/com/notificationdemoapp
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setContentTitle("Clinica Dental X")
+                .setContentText("Citas Odontologo en Linea/MedicAPP")
+                .setStyle(new NotificationCompat.BigTextStyle().bigText("doctor de cita : " +txtNameDoc.getText().toString()+ " Revisa tu Bandeja de MSJ"))
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(resultPendingIntent)
+                .setAutoCancel(true)
+                .setColor(getResources().getColor(android.R.color.holo_red_dark))
+                .addAction(R.drawable.ic_launcher_foreground, "Call", resultPendingIntent)
+                .addAction(R.drawable.ic_launcher_foreground, "More", resultPendingIntent)
+                .addAction(R.drawable.ic_launcher_foreground, "And more", resultPendingIntent);
+
+
+        if (notificationManager != null) {
+
+            notificationManager.notify(NOTIFICATION_ID, builder.build());
+        }
+
+
+
+
+        /**  Intent i = new Intent(this, MainActivity.class);
         i.putExtra("notificationID", notificationID);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, 0);
@@ -381,7 +439,7 @@ public class AddAppointmentActivity extends AppCompatActivity {
         CharSequence ticker = "Doctor de cita";
         CharSequence contentTitle = "Citas Odontologo en Linea/MedicAPP";
         CharSequence contentText = "doctor de cita : " +txtNameDoc.getText().toString()+ " Revisa tu Bandeja de MSJ";
-        Notification noti = new NotificationCompat.Builder(this)
+        Notification noti = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentIntent(pendingIntent)
                 .setTicker(ticker)
                 .setContentTitle(contentTitle)
@@ -390,8 +448,10 @@ public class AddAppointmentActivity extends AppCompatActivity {
                 .addAction(R.drawable.ic_assignment_turned_in, ticker, pendingIntent)
                 .setVibrate(new long[]{100, 250, 100, 500})
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .setChannelId(CHANNEL_ID)
                 .build();
-        nm.notify(notificationID, noti);
+
+        nm.notify(notificationID, noti);**/
 
 
     }

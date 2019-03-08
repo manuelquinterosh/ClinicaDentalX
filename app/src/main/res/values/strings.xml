@@ -49,4 +49,7 @@
 
     <string name="google_maps_key">AIzaSyDtIsgOSQH5hSsJrYFRTu-fic9ClFPMS_A</string>
 
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+
+    <string name="default_notification_channel_id">my_channel_01</string>
 </resources>

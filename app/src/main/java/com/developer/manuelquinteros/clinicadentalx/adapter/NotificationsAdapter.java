@@ -2,27 +2,32 @@ package com.developer.manuelquinteros.clinicadentalx.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.developer.manuelquinteros.clinicadentalx.R;
 import com.developer.manuelquinteros.clinicadentalx.model.Notifications;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdapter.ViewHolder> {
 
-    //https://github.com/rickydam/RickyBooks-Android/blob/master/app/src/main/java/com/rickybooks/rickybooks/FirebaseService.java
-    //https://github.com/DhvanilP/Live-video-streaming/blob/master/Android-App/app/src/main/java/net/majorkernelpanic/example3/MainActivity.java
+    List<Notifications> notificationsAdapters;
+    Context mContext;
 
+    ItemClickListener mItemClickListener;
 
-    ArrayList<Notifications> notificationsAdapters = new ArrayList<>();
-
-    public NotificationsAdapter() {
+    public NotificationsAdapter(List<Notifications> object,ItemClickListener itemClickListener,  Context context) {
+        notificationsAdapters = object;
+        mItemClickListener = itemClickListener;
+        mContext= context;
     }
+
 
     @NonNull
     @Override
@@ -34,14 +39,39 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
+        final Notifications newNotifications = notificationsAdapters.get(i);
+        viewHolder.title.setText(newNotifications.getmTitle());
+        viewHolder.description.setText(newNotifications.getmDescription());
+        viewHolder.expiryDate.setText(String.format("Valido hasta el %s",newNotifications.getmExpiryDate()));
+        viewHolder.discount.setText(String.format("%d%%", (int) (newNotifications.getmDiscount() * 100)));
+
+        viewHolder.borrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mItemClickListener.OnItemDeleteClick(i, newNotifications);
+            }
+        });
+
+        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mItemClickListener.OnItemClickNotification(i, newNotifications);
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return notificationsAdapters.size();
     }
+
+
+    public void setList(List<Notifications> list) {
+        notificationsAdapters = list;
+    }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -49,6 +79,8 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
         public TextView description;
         public TextView expiryDate;
         public TextView discount;
+        public Button borrar;
+        public CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -56,6 +88,9 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
             description = (TextView) itemView.findViewById(R.id.text_description);
             expiryDate = (TextView) itemView.findViewById(R.id.text_expiry_date);
             discount = (TextView) itemView.findViewById(R.id.text_discount);
+            borrar = (Button) itemView.findViewById(R.id.btnNotification);
+            cardView = (CardView)itemView.findViewById(R.id.card_notification);
         }
     }
+
 }

@@ -13,11 +13,11 @@ public class SplashActivity extends AppCompatActivity {
     Button btnLogin, btnRegister;
     TextView txtSlog;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
 
         btnLogin = (Button) findViewById(R.id.btnLogSession);
         btnRegister = (Button) findViewById(R.id.btnRegisterUser);
@@ -30,8 +30,10 @@ public class SplashActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
+
             }
         });
 

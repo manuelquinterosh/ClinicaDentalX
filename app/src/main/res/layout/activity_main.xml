@@ -82,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="25dp"
-                    app:srcCompat="@drawable/ic_event_note"
+                    app:srcCompat="@drawable/appointment_icono"
                     />
 
                 <TextView
@@ -97,7 +97,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/goTreatment"
+                android:id="@+id/goPromotions"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -109,7 +109,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="25dp"
-                    app:srcCompat="@drawable/ic_assignment"/>
+                    app:srcCompat="@drawable/campanita"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -136,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="25dp"
-                    app:srcCompat="@drawable/ic_location_on"/>
+                    app:srcCompat="@drawable/location_icono"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="25dp"
-                    app:srcCompat="@drawable/ic_people"/>
+                    app:srcCompat="@drawable/contact_icono"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -197,7 +197,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="25dp"
-                    app:srcCompat="@drawable/ic_person"/>
+                    app:srcCompat="@drawable/perfil_icono"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -211,7 +211,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/goGallery"
+                android:id="@+id/goPortfolio"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -223,7 +223,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="25dp"
-                    app:srcCompat="@drawable/ic_featured_video"/>
+                    app:srcCompat="@drawable/portfolio_icono"/>
 
                 <TextView
                     android:layout_width="wrap_content"

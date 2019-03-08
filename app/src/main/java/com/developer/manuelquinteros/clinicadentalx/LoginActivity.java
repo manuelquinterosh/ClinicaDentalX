@@ -71,6 +71,14 @@ public class LoginActivity extends AppCompatActivity {
 
         session = new UserSessionManager(getApplicationContext());
 
+        // Check if user is already logged in or not
+        if (session.isUserLogedIn()) {
+            // User is already logged in. Take him to main activity
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

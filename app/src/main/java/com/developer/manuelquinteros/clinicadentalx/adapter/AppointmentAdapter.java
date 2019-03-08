@@ -69,6 +69,8 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         vista.setLayoutParams(layoutParams);
 
+
+
         return new AppointmentHolder(vista);
     }
 

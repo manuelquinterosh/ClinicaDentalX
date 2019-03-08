@@ -1,13 +1,7 @@
 package com.developer.manuelquinteros.clinicadentalx.model;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class Appointment {
 
-    // estados:
-    public static List<String> STATES_VALUES =
-            Arrays.asList("Todas", "Activas", "Cumplidas", "Canceladas");
 
     private String idcitas;
     private String fecha;
