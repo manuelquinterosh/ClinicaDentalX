@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="@color/colorDentisBackgroundCardview"
     app:contentPaddingLeft="@dimen/activity_horizontal_margin"
     app:contentPaddingRight="@dimen/activity_horizontal_margin"
     app:contentPaddingTop="8dp"
@@ -24,10 +25,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dp"
             android:text="Nex Text"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            tools:text="50%"/>
+            android:textColor="@color/white"
+            tools:text="50%" />
 
         <TextView
             android:id="@+id/text_title"
@@ -36,9 +38,10 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/text_discount"
+            android:textColor="@color/white"
             android:text="New Text"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            tools:text="!Cyberlunes!"/>
+            tools:text="Titulo"/>
 
         <TextView
             android:id="@+id/text_description"
@@ -47,8 +50,9 @@
             android:layout_below="@id/text_title"
             android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/text_discount"
+            android:textColor="@color/white"
             android:text="New Text"
-            tools:text="Compra en línea ahora mismo y ahorra hasta un 50% en el seguro de tu automóvil"/>
+            tools:text="Visita nuestras clinicas y obtenen los mejores descuentos."/>
 
         <TextView
             android:id="@+id/text_expiry_date"
@@ -58,22 +62,24 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/text_discount"
+            android:textColor="@color/white"
             android:text="New Text"
             android:textStyle="italic"
-            tools:text="Valido hasta el 7/07/2016"
+            tools:text="Valido hasta el 27/03/2019"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
-        <Button
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/btnNotification"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_expiry_date"
+            android:layout_marginLeft="-61dp"
+            android:layout_marginTop="-28dp"
             android:layout_toRightOf="@+id/text_discount"
-            android:text="Borrar Notificacion"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="13sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+            android:src="@drawable/ico_eliminar"
+            app:backgroundTint="@color/colorPromotionBackground"
+            app:borderWidth="1dp"
+            app:elevation="2dp" />
 
     </RelativeLayout>
 
