@@ -114,17 +114,10 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         public Button btCancel, btPrint;
         public CardView cardStatus;
         public ImageView imgSSt;
-       /** public TextView mListaVacia;
-        public ImageView mImageEmpty;
-        public RecyclerView recyclerAppointment;**/
 
 
         public AppointmentHolder(View itemView) {
             super(itemView);
-
-           /** mListaVacia= (TextView)itemView.findViewById(R.id.sms_lista_vacia);
-            mImageEmpty = (ImageView) itemView.findViewById(R.id.imgEmpty);
-            recyclerAppointment = (RecyclerView) itemView.findViewById(R.id.list_appointment);**/
 
             statusIndicator = (View) itemView.findViewById(R.id.indicatorStatus);
             txCode = (TextView) itemView.findViewById(R.id.tvCode);

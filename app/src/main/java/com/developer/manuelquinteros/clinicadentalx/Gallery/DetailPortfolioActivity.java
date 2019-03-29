@@ -33,7 +33,7 @@ public class DetailPortfolioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_gallery);
+        setContentView(R.layout.activity_detail_portfolio);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_galery_detail);
         setSupportActionBar(toolbar);
@@ -122,11 +122,6 @@ public class DetailPortfolioActivity extends AppCompatActivity {
         public PlaceholderFragment() {
         }
 
-        @Override
-        public void onStart() {
-            super.onStart();
-
-        }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -73,14 +73,6 @@ public class Appointment {
         this.especialidad = especialidad;
     }
 
-    public String getMotivo() {
-        return motivo;
-    }
-
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
-    }
-
     public String getNdoctor() {
         return Ndoctor;
     }

@@ -26,7 +26,7 @@ public class GridCustomAdapterSchedule extends BaseAdapter {
         this.context = context;
         layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         scheduleList = customListview;
-        options = new RequestOptions().centerCrop().placeholder(R.drawable.icon_time);
+        options = new RequestOptions().centerCrop().placeholder(R.drawable.scheduleicon);
 
     }
 
@@ -61,8 +61,6 @@ public class GridCustomAdapterSchedule extends BaseAdapter {
             listViewHolder = (ViewHolder) convertView.getTag();
         }
         listViewHolder.txSchedule.setText(scheduleList.get(position).getHora_inicio() + " a " + scheduleList.get(position).getHora_final());
-        //   int imageResourceId = this.context.getResources().getIdentifier(horariosList.get(position).getImageResource(), "drawable", this.context.getPackageName());
-        // listViewHolder.ImgPicture.setImageResource(imageResourceId);
 
         //Load Image from the internet set it into Imageviw Glide
         Glide.with(context).load(scheduleList.get(position).getImageResource()).apply(options).into(listViewHolder.ImgPicture);
@@ -74,6 +72,5 @@ public class GridCustomAdapterSchedule extends BaseAdapter {
     static class ViewHolder{
         TextView txSchedule;
         ImageView ImgPicture;
-        //  RelativeLayout relativeLayout;
     }
 }

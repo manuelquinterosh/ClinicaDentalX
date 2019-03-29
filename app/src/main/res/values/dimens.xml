@@ -19,4 +19,6 @@
     <dimen name="margen_izquierda_contenido">72dp</dimen>
     <dimen name="ancho_miniatura">120dp</dimen>
     <dimen name="ancho_panel_lista">512dp</dimen>
+
+    <dimen name="fab_margin">10dp</dimen>
 </resources>

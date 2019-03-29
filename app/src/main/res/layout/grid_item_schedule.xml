@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/picture"
-        android:background="@drawable/icon_time"
+        android:background="@drawable/scheduleicon"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:layout_gravity="center_horizontal"

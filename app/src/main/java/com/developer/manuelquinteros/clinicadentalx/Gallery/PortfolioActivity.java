@@ -21,12 +21,21 @@ public class PortfolioActivity extends AppCompatActivity {
     ArrayList<Gallery> data = new ArrayList<>();
 
     public static String IMGS[] = {
-      "https://images.unsplash.com/photo-1444090542259-0af8fa96557e?q=80&fm=jpg&w=1080&fit=max&s=4b703b77b42e067f949d14581f35019b",
-            "https://images.unsplash.com/photo-1439546743462-802cabef8e97?dpr=2&fit=crop&fm=jpg&h=725&q=50&w=1300",
-            "https://images.unsplash.com/photo-1441155472722-d17942a2b76a?q=80&fm=jpg&w=1080&fit=max&s=80cb5dbcf01265bb81c5e8380e4f5cc1",
-            "https://images.unsplash.com/photo-1437651025703-2858c944e3eb?dpr=2&fit=crop&fm=jpg&h=725&q=50&w=1300",
-            "https://images.unsplash.com/photo-1431538510849-b719825bf08b?dpr=2&fit=crop&fm=jpg&h=725&q=50&w=1300",
-            "https://images.unsplash.com/photo-1434873740857-1bc5653afda8?dpr=2&fit=crop&fm=jpg&h=725&q=50&w=1300"
+      "https://www.ula.edu.mx/images/oferta_academica/modalidad_presencial/posgrados_presenciales/maestrias/ula_posgrados_maestrias_odontologia_01.jpg",
+            "http://www.colegiodentistas.org/sitCol/wp-content/uploads/2015/09/Incorporacio%CC%81n-Odonto%CC%81logo-GENERAL-Costarricense.jpg",
+            "http://unicatolicaquixada.edu.br/wp-content/uploads/2016/04/ATENDIMENTO-ODONTOLOGIA-UNICAT%C3%93LICA-QUIXAD%C3%81.png",
+            "http://innova.unab.cl/wp-content/uploads/2016/07/DecanoOdontologia1.jpg",
+            "http://www.login.cl/images/2015/06/497f.jpg",
+            "http://sescam.castillalamancha.es/sites/sescam.castillalamancha.es/files/consulta_de_odontologia_en_a._primaria_04.jpg",
+            "http://sescam.castillalamancha.es/sites/sescam.castillalamancha.es/files/notas_de_prensa/fotografias/20140603/consulta_de_odontologia_en_c.s._talavera_v_03-06-14.jpg",
+            "http://ss.pue.gob.mx/wp-content/uploads/2018/02/Donacion_Multiorganica.jpg",
+            "http://fotos.e-consulta.com/odontologia.jpg",
+            "http://revistasentidosconvalores.com/wp-content/uploads/2017/11/semana-de-la-salud-veterinaria-2017-uanl-agronomia-8-800x445.jpg",
+            "http://bajio.delasalle.edu.mx/noticias/images/867_3.jpg",
+            "https://i2.wp.com/estudidentalbarcelona.com/wp-content/uploads/2016/08/Cirugia-dental-quiste-radicular.jpg?fit=900%2C500&ssl=1",
+            "https://www.saludyalimentacion.com/wp-content/uploads/2018/12/cirug%C3%ADa-bucal.jpg",
+            "http://dentalcarecenterrd.com/wp-content/uploads/2016/05/cirugia-01.jpg",
+            "https://unitecmx-universidadtecno.netdna-ssl.com/wp-content/uploads/2017/08/aprendizaje-odontologia-unitec-800x533.jpg"
     };
 
     @Override

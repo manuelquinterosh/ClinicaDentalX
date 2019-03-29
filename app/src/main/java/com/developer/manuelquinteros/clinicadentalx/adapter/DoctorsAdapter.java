@@ -7,8 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.developer.manuelquinteros.clinicadentalx.R;
 import com.developer.manuelquinteros.clinicadentalx.model.Doctors;
 
@@ -20,6 +23,8 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
     private Context mContext;
     private  OnItemListenerDoctor mOnItemClickListener;
 
+    RequestOptions options;
+
     public interface OnItemListenerDoctor {
         void onInfoDoctorClicked(Doctors doctorClicked);
     }
@@ -28,12 +33,11 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
         this.mItems = items;
         this.mContext = context;
         this.mOnItemClickListener = listenerDoctor;
+
+        //Request option for glide
+        options = new RequestOptions().centerCrop().placeholder(R.drawable.shape_doc);
     }
 
-    public void setDoctors(List<Doctors> mItems) {
-        this.mItems = mItems;
-        notifyDataSetChanged();
-    }
 
     @NonNull
     @Override
@@ -48,6 +52,8 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
 
         // Spinner Drop down elements
         holder.bind(mItems.get(position));
+        Glide.with(mContext).load(mItems.get(position).getImage_url()).apply(options).into(holder.imgProfileView);
+
 
     }
 
@@ -60,6 +66,7 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
         private final TextView nameView;
         private final TextView specialtyView;
         private final TextView descriptionView;
+        private final ImageView imgProfileView;
         private final Button solicitarButton;
 
         public DoctorsViewHolder(ViewGroup parent) {
@@ -69,7 +76,7 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
             nameView = (TextView) itemView.findViewById(R.id.name_text);
             specialtyView = (TextView) itemView.findViewById(R.id.specialty_text);
             descriptionView = (TextView) itemView.findViewById(R.id.description_text);
-
+            imgProfileView = (ImageView) itemView.findViewById(R.id.doctorProfileImg);
 
             solicitarButton = (Button) itemView.findViewById(R.id.solicit_button);
 
@@ -78,7 +85,6 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
-                        //String selectedItem = (String) scheduleView.getSelectedItem();
                         mOnItemClickListener.onInfoDoctorClicked(mItems.get(position));
 
                     }
@@ -88,11 +94,9 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.DoctorsV
         }
 
         public void bind(Doctors doctor) {
-
             nameView.setText(doctor.getNombre());
             specialtyView.setText(doctor.getEspecialidad());
             descriptionView.setText(doctor.getDescripcion());
-
 
         }
     }

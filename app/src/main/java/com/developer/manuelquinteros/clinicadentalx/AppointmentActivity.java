@@ -105,13 +105,6 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
 
     }
 
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-        if ( progress!=null && progress.isShowing() ){
-            progress.cancel();
-        }
-    }
 
     private void loadAppointment(final String id_usuario) {
 
@@ -138,13 +131,7 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
                         listAppointment.add(appointment);
 
                         }
-                       // if (listAppointment.size() == 0){
-                        //    emptyList();
-                        //} else {
-                          //  dateList();
-                            setupRecyclerView(listAppointment);
-                    //    }
-
+                        setupRecyclerView(listAppointment);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -156,7 +143,6 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
             @Override
             public void onErrorResponse(VolleyError error) {
                 showLoadingIndicator(false);
-               // showErrorMessage("Ha ocurrido un error. Contacte al administrador" + error);
             }
         });
 
@@ -177,12 +163,10 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
         else
             dateList();
 
-        //Mostar un mensaje cuando se utiliza los metodos add, remo, set del adaptador RecyclerView
-        //Cuenta con vacior metodos @Override utiliza el que je ajuste a tu necesidad
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
 
             @Override
-            public void onItemRangeChanged(int positionStart, int itemCount) { //Solo se invoca cuando se utiliza la función [ejemplo] notifyItemRangeChanged(position, mDatos.size);
+            public void onItemRangeChanged(int positionStart, int itemCount) {
                 super.onItemRangeChanged(positionStart, itemCount);
 
                 if(itemCount == 0)
@@ -205,9 +189,6 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
         });
     }
 
-    private void showErrorMessage(String error) {
-        Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -252,12 +233,8 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
 
     public void eliminarCita(String idCita){
 
-        volley = VolleyUse.getInstance(AppointmentActivity.this);
-        request = volley.getRequestQueue();
 
-        progress=new ProgressDialog(AppointmentActivity.this);
-        progress.setMessage("Cargando...");
-        progress.show();
+       showLoadingIndicator(true);
 
         String url = "https://codonticapp.000webhostapp.com/swJSONdeleteAppointment.php?idcitas="+idCita;
 
@@ -270,14 +247,14 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
                     int success = response.getInt("success");
                     if (success==1){
 
-                        progress.hide();
+                        showLoadingIndicator(false);
                         Toast.makeText(getApplicationContext(),"delete success",Toast.LENGTH_LONG).show();
                         Intent list = new Intent(getApplicationContext(),AppointmentActivity.class);
                         list.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(list);
 
                     } else {
-                        progress.hide();
+                        showLoadingIndicator(false);
                         Toast.makeText(getApplicationContext(),"delete failed",Toast.LENGTH_LONG).show();
                     }
                 }catch (JSONException e){
@@ -287,7 +264,7 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                progress.hide();
+                showLoadingIndicator(false);
             }
         });
 

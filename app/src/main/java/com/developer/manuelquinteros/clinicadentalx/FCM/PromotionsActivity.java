@@ -26,7 +26,6 @@ import java.util.List;
 public class PromotionsActivity extends AppCompatActivity implements ItemClickListener {
 
 
-
     public static final String ACTION_NOTIFY_NEW_PROMO = "NOTIFY_NEW_PROMO";
 
 
@@ -68,7 +67,7 @@ public class PromotionsActivity extends AppCompatActivity implements ItemClickLi
         mRecyclerView.setLayoutManager(new LinearLayoutManager(PromotionsActivity.this));
         mNotificatiosAdapter = new NotificationsAdapter(list,  PromotionsActivity.this,PromotionsActivity.this);
         mNotificatiosAdapter.notifyDataSetChanged();
-        //mNotificatiosAdapter.notifyItemInserted();
+
         mRecyclerView.setAdapter(mNotificatiosAdapter);
 
 
@@ -79,12 +78,11 @@ public class PromotionsActivity extends AppCompatActivity implements ItemClickLi
         else
             dateList();
 
-        //Mostar un mensaje cuando se utiliza los metodos add, remo, set del adaptador RecyclerView
-        //Cuenta con vacior metodos @Override utiliza el que je ajuste a tu necesidad
+
         mNotificatiosAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
 
             @Override
-            public void onItemRangeChanged(int positionStart, int itemCount) { //Solo se invoca cuando se utiliza la función [ejemplo] notifyItemRangeChanged(position, mDatos.size);
+            public void onItemRangeChanged(int positionStart, int itemCount) {
                 super.onItemRangeChanged(positionStart, itemCount);
 
                 if(itemCount == 0)
@@ -145,12 +143,11 @@ public class PromotionsActivity extends AppCompatActivity implements ItemClickLi
         else
             dateList();
 
-        //Mostar un mensaje cuando se utiliza los metodos add, remo, set del adaptador RecyclerView
-        //Cuenta con vacior metodos @Override utiliza el que je ajuste a tu necesidad
+
         mNotificatiosAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
 
             @Override
-            public void onItemRangeChanged(int positionStart, int itemCount) { //Solo se invoca cuando se utiliza la función [ejemplo] notifyItemRangeChanged(position, mDatos.size);
+            public void onItemRangeChanged(int positionStart, int itemCount) {
                 super.onItemRangeChanged(positionStart, itemCount);
 
                 if(itemCount == 0)

@@ -3,16 +3,24 @@ package com.developer.manuelquinteros.clinicadentalx.FCM;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.developer.manuelquinteros.clinicadentalx.R;
 
 public class NotificationDetailActivity extends AppCompatActivity {
+
        TextView textViewTitle, textViewFecha, textViewContenido, textViewDiscount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_detail);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_detail);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         textViewTitle = (TextView) findViewById(R.id.titulo);
         textViewFecha = (TextView) findViewById(R.id.fecha);

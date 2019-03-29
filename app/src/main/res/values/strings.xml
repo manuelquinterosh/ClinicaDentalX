@@ -16,8 +16,8 @@
     <string name="text_button_createaccount">Unirse</string>
     <string name="hint_passwordLogin">Contraseña</string>
     <string name="text_button_login">Login</string>
-    <string name="dont_have_account">No tienes cuenta?,</string>
-    <string name="create_here">crea una aqui</string>
+    <string name="dont_have_account">No tienes cuenta?, </string>
+    <string name="create_here"> crea una aqui</string>
 
     <!--Menu-->
     <string name="citas">Citas</string>

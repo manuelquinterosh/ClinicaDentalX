@@ -225,12 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(MainActivity.this, PortfolioActivity.class);
             startActivity(intent);
-           /**if (PROCESS_OK.equals(result)) {
-                Toast.makeText(context, "Process OK " + result, Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(context, "Process ERROR " + result, Toast.LENGTH_LONG).show();
-            }
-        }**/
+
         }
     }
 }

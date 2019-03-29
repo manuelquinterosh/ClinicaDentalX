@@ -107,8 +107,6 @@ public class FcmMessagingService extends FirebaseMessagingService {
                 .setAutoCancel(true)
                 .setColor(getResources().getColor(android.R.color.holo_red_dark))
                 .addAction(R.drawable.ic_launcher_foreground, "BANDEJA DE ENTRADA", pendingIntent);
-                //.addAction(R.drawable.ic_launcher_foreground, "More", resultPendingIntent)
-                //.addAction(R.drawable.ic_launcher_foreground, "And more", resultPendingIntent);
 
 
         if (notificationManager != null) {

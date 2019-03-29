@@ -21,10 +21,10 @@
             app:layout_constraintGuide_percent="0.34"/>
 
         <ImageView
-            android:id="@+id/profile_image"
+            android:id="@+id/doctorProfileImg"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:tint="@android:color/darker_gray"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
             app:layout_constraintStart_toStartOf="parent"

@@ -67,8 +67,6 @@ public class ContactActivity extends AppCompatActivity {
 
        navigationView.setSelectedItemId(R.id.facebook);
 
-//https://www.youtube.com/watch?v=8qwaLC1_Trw
-
     }
 
     private void setFragment(Fragment fragment){
@@ -90,13 +88,11 @@ public class ContactActivity extends AppCompatActivity {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.action_phone:
-                //openSearch();
                 String phone = "+50375020637";
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
                 startActivity(intent);
                 return true;
             case R.id.action_email:
-                //openSettings();
                 String[] TO = {"manuelq_hernandez@outlook.com"};
                 Uri uri = Uri.parse("mailto:manuelq_hernandez@outlook.com")
                         .buildUpon()

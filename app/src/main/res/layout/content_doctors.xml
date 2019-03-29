@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_doctors">
 
     <ProgressBar
-        android:id="@+id/progress"
+        android:id="@+id/progress_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -25,7 +25,7 @@
         tools:listitem="@layout/doctors_item_list" />
 
     <LinearLayout
-        android:id="@+id/doctors_schedules_empty"
+        android:id="@+id/doctors_available_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -44,6 +44,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Reserva un doctor para tu cita" />
+            android:text="No hay doctores disponibles" />
     </LinearLayout>
 </RelativeLayout>

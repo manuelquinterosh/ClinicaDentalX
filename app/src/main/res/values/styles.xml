@@ -52,7 +52,7 @@
         <item name="colorAccent">@android:color/darker_gray</item>
         <item name="android:textColorHint">@color/edittextColorGray</item>
         <item name="colorControlNormal">@android:color/darker_gray</item>
-        <item name="colorControlActivated">@android:color/darker_gray</item>
+        <item name="colorControlActivated">@android:color/holo_red_light</item>
         <item name="colorControlHighlight">@android:color/darker_gray</item>
     </style>
 

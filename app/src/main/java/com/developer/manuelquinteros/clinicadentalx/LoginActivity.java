@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
 
-            // Mostrar el indicador de carga y luego iniciar la petición asíncrona.
+
             showProgress(true);
 
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -169,7 +169,6 @@ public class LoginActivity extends AppCompatActivity {
                                 String telefono = c.getString("telefono").trim();
                                 String direccion = c.getString("direccion").trim();
                                 String contrasena = c.getString("contrasena").trim();
-                                //String avatar = convertirImgString(bitmap);
                                 String id = c.getString("idUser").trim();
 
                                 session.createUserLoginSession(usuario, nombre, email, telefono, direccion, contrasena, id);

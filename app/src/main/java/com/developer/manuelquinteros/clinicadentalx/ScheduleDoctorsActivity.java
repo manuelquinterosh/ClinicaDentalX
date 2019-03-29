@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -34,12 +35,17 @@ public class ScheduleDoctorsActivity extends AppCompatActivity {
     private RequestQueue request;
     private VolleyUse volley;
     int positionSelected = 0;
+    private ProgressBar mProgress;
+    private View mEmptyView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_doctors);
 
+        mEmptyView = findViewById(R.id.doctors_schedules_empty);
+
+        mProgress = (ProgressBar) findViewById(R.id.progress_schedule);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_list_schedule);
         setSupportActionBar(toolbar);
@@ -59,6 +65,7 @@ public class ScheduleDoctorsActivity extends AppCompatActivity {
         final String descripcion_doctor = DoctorsActivityIntent.getStringExtra("descripcion");
 
         getSupportActionBar().setTitle(nombre_doctor);
+        getSupportActionBar().setSubtitle("Horarios Disponibles");
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -81,9 +88,14 @@ public class ScheduleDoctorsActivity extends AppCompatActivity {
         });
 
         loadScheduleItem(idDoc);
+
     }
 
     private void loadScheduleItem(String idDoctors) {
+
+        //mostrar estado de la carga
+        showLoadingIndicator(true);
+
         String JSON_URL = "https://codonticapp.000webhostapp.com/wsJSONscheduleDoctors.php?iddoctor="+idDoctors;
 
         JsonObjectRequest jReq = new JsonObjectRequest(Request.Method.GET, JSON_URL, null, new Response.Listener<JSONObject>() {
@@ -97,7 +109,6 @@ public class ScheduleDoctorsActivity extends AppCompatActivity {
                         schedule.setIdhora(jsonObject.getString("idhorarios"));
                         schedule.setHora_inicio(jsonObject.getString("horario_inicio"));
                         schedule.setHora_final(jsonObject.getString("horario_final"));
-                        schedule.setImageResource(jsonObject.getString("logo_hora"));
 
                         scheduleList.add(schedule);
                     }
@@ -107,11 +118,12 @@ public class ScheduleDoctorsActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                showLoadingIndicator(false);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                showLoadingIndicator(false);
             }
         });
         VolleyUse.addToQueue(jReq, request, this, volley);
@@ -120,5 +132,29 @@ public class ScheduleDoctorsActivity extends AppCompatActivity {
     private void setupGrid(List<Schedule> list){
         GridCustomAdapterSchedule customAdapterHorarios = new GridCustomAdapterSchedule(ScheduleDoctorsActivity.this, list);
         gridview.setAdapter(customAdapterHorarios);
+
+        if (list.size()==0 ){
+            mEmptyView.setVisibility(View.VISIBLE);
+        } else {
+            mEmptyView.setVisibility(View.GONE);
+        }
+
+    }
+
+
+    private void showLoadingIndicator(boolean show) {
+        mProgress.setVisibility(show ? View.VISIBLE : View.GONE);
+        gridview.setVisibility(show ? View.GONE : View.VISIBLE);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (scheduleList.size()==0 ){
+            mEmptyView.setVisibility(View.VISIBLE);
+        } else {
+            mEmptyView.setVisibility(View.GONE);
+        }
     }
 }

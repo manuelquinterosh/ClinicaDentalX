@@ -14,6 +14,7 @@ import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
@@ -50,7 +51,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddAppointmentActivity extends AppCompatActivity {
-    public static final String CHANNEL_ID = "exampleChannel";
+
     String url_citar = "https://codonticapp.000webhostapp.com/wsJSONsaveAppointment.php";
 
 
@@ -64,7 +65,8 @@ public class AddAppointmentActivity extends AppCompatActivity {
 
     private ProgressBar mProgressBar;
 
-    private Button bCrearCita, btnBuscarDoctor;
+    private Button bCrearCita;
+
     ProgressDialog progreso;
 
     private RequestQueue request;
@@ -73,8 +75,6 @@ public class AddAppointmentActivity extends AppCompatActivity {
 
 
     private int Mdia, Mmes, Mano;
-
-    int notificationID = 1;
 
     persistenceField fieldManager;
 
@@ -100,7 +100,6 @@ public class AddAppointmentActivity extends AppCompatActivity {
 
 
         bCrearCita = (Button) findViewById(R.id.btnQuote);
-        btnBuscarDoctor = (Button) findViewById(R.id.search_doctor_button);
 
         txtNameDoc = (TextView) findViewById(R.id.appointment_doctor_name);
         txtTime = (TextView) findViewById(R.id.appointment_doctor_time_schedule);
@@ -111,16 +110,15 @@ public class AddAppointmentActivity extends AppCompatActivity {
         mEmptyDoctorView = findViewById(R.id.empty_doctor);
         mDoctorContentView = findViewById(R.id.doctor_content);
 
-
-
-
+        FloatingActionButton btnBuscarDoctor = (FloatingActionButton) findViewById(R.id.search_doctor_button);
         btnBuscarDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(AddAppointmentActivity.this, DoctorsActivity.class);
                 startActivity(intent);
             }
         });
+
 
         dateAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,11 +139,7 @@ public class AddAppointmentActivity extends AppCompatActivity {
         final String time_ini = DoctorActivityIntent.getStringExtra("horario_inicio");
         final String time_fin = DoctorActivityIntent.getStringExtra("horario_final");
 
-
-
-        Log.d("detail id doctor", idDoc + ndoc + time_ini + time_fin);
-
-            showIntentHora(ndoc, time_ini, time_fin);
+        showIntentHora(ndoc, time_ini, time_fin);
 
 
 
@@ -176,7 +170,6 @@ public class AddAppointmentActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 progreso.dismiss();
-                                //showDatosDoctor(false);
                             }
                         });
                         alert.show();
@@ -297,14 +290,12 @@ public class AddAppointmentActivity extends AppCompatActivity {
 
     private void cargarWebService(final String code, final String fech, final String hor, final String nper, final String idUser, final String idDoctor) {
         progreso.show();
-        //showDatosDoctor(true);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url_citar, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 progreso.dismiss();
-                //showDatosDoctor(false);
 
                 try {
                     JSONObject jsonObject = new JSONObject(response);
@@ -402,12 +393,12 @@ public class AddAppointmentActivity extends AppCompatActivity {
         }
 
 
-        Intent resultIntent = new Intent(this, MainActivity.class);
+        Intent resultIntent = new Intent(this, AppointmentActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addParentStack(AppointmentActivity.class);
         stackBuilder.addNextIntent(resultIntent);
         PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-   //https://github.com/shubhambathe1/NotificationDemoApp/tree/master/app/src/main/java/theaxontech/com/notificationdemoapp
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Clinica Dental X")
                 .setContentText("Citas Odontologo en Linea/MedicAPP")
@@ -417,42 +408,13 @@ public class AddAppointmentActivity extends AppCompatActivity {
                 .setContentIntent(resultPendingIntent)
                 .setAutoCancel(true)
                 .setColor(getResources().getColor(android.R.color.holo_red_dark))
-                .addAction(R.drawable.ic_launcher_foreground, "Call", resultPendingIntent)
-                .addAction(R.drawable.ic_launcher_foreground, "More", resultPendingIntent)
-                .addAction(R.drawable.ic_launcher_foreground, "And more", resultPendingIntent);
+                .addAction(R.drawable.ic_launcher_foreground, "Ver Citas", resultPendingIntent);
 
 
         if (notificationManager != null) {
 
             notificationManager.notify(NOTIFICATION_ID, builder.build());
         }
-
-
-
-
-        /**  Intent i = new Intent(this, MainActivity.class);
-        i.putExtra("notificationID", notificationID);
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, 0);
-        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-        CharSequence ticker = "Doctor de cita";
-        CharSequence contentTitle = "Citas Odontologo en Linea/MedicAPP";
-        CharSequence contentText = "doctor de cita : " +txtNameDoc.getText().toString()+ " Revisa tu Bandeja de MSJ";
-        Notification noti = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentIntent(pendingIntent)
-                .setTicker(ticker)
-                .setContentTitle(contentTitle)
-                .setContentText(contentText)
-                .setSmallIcon(R.drawable.ic_assignment_turned_in)
-                .addAction(R.drawable.ic_assignment_turned_in, ticker, pendingIntent)
-                .setVibrate(new long[]{100, 250, 100, 500})
-                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                .setChannelId(CHANNEL_ID)
-                .build();
-
-        nm.notify(notificationID, noti);**/
-
 
     }
 

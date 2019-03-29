@@ -34,7 +34,8 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnInfoW
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_maps);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
     }
 
     @Override
@@ -47,7 +48,6 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnInfoW
         InfoMoncagua =  googleMap.addMarker(new MarkerOptions()
                 .position(moncagua)
                 .title("Moncagua")
-                // .snippet("Clinica Detal ToothCare, Moncagua, El Salvador")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.officemarker)));
 
         //Chapeltique
@@ -55,7 +55,6 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnInfoW
         InfoChapeltique =  googleMap.addMarker(new MarkerOptions()
                 .position(chapeltique)
                 .title("Chapeltique")
-                // .snippet("Clinica Detal ToothCare, Moncagua, El Salvador")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.officemarkerdos)));
 
         //Cuidad Barrios
@@ -63,7 +62,6 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnInfoW
         InfoCuidadBarrios=  googleMap.addMarker(new MarkerOptions()
                 .position(barrios)
                 .title("Cuidad Barrios")
-                // .snippet("Clinica Detal ToothCare, Moncagua, El Salvador")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.officemarkertres)));
 
         //San Miguel
@@ -71,7 +69,6 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnInfoW
         InfoSanMiguel=  googleMap.addMarker(new MarkerOptions()
                 .position(sanmiguel)
                 .title("San Miguel")
-                // .snippet("Clinica Detal ToothCare, Moncagua, El Salvador")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.officemarkercuatro)));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(moncagua, 10));

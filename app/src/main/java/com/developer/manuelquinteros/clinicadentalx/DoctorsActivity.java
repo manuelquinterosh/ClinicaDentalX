@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -31,11 +33,18 @@ public class DoctorsActivity extends AppCompatActivity implements DoctorsAdapter
 
     private RecyclerView recyclerDoctors;
     private ArrayList<Doctors> listDoctors;
+    private ProgressBar mProgress;
+
+    private View mEmptyView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
+
+        mEmptyView = findViewById(R.id.doctors_available_empty);
+
+        mProgress = (ProgressBar) findViewById(R.id.progress_doctor);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_doctors);
         setSupportActionBar(toolbar);
@@ -56,6 +65,7 @@ public class DoctorsActivity extends AppCompatActivity implements DoctorsAdapter
     }
 
     private void loadDoctors() {
+        showLoadingIndicator(true);
         String JSON_URL = "https://codonticapp.000webhostapp.com/wsJSONListDoctor.php";
 
         JsonObjectRequest jReq = new JsonObjectRequest(Request.Method.GET, JSON_URL, null, new Response.Listener<JSONObject>() {
@@ -81,11 +91,12 @@ public class DoctorsActivity extends AppCompatActivity implements DoctorsAdapter
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                showLoadingIndicator(false);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                showLoadingIndicator(false);
             }
         });
         VolleyUse.addToQueue(jReq, request, this, volley);
@@ -94,6 +105,27 @@ public class DoctorsActivity extends AppCompatActivity implements DoctorsAdapter
     private void setupRecyclerView(List<Doctors> list) {
         DoctorsAdapter doctorsAdapter = new DoctorsAdapter(list, this, this);
         recyclerDoctors.setAdapter(doctorsAdapter);
+
+        //Mostrar un mensaje si la lista esta vacía [cuando carga la app]
+        int numItems =  doctorsAdapter.getItemCount();
+        if(numItems == 0)
+            emptyList();
+        else
+            dateList();
+
+        doctorsAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+
+            @Override
+            public void onItemRangeChanged(int positionStart, int itemCount) {
+                super.onItemRangeChanged(positionStart, itemCount);
+
+                if(itemCount == 0)
+                    emptyList();
+                else
+                    dateList();
+            }
+
+        });
     }
 
     @Override
@@ -106,5 +138,24 @@ public class DoctorsActivity extends AppCompatActivity implements DoctorsAdapter
         intent.putExtra("especialidad", doctorClicked.getEspecialidad());
         intent.putExtra("descripcion", doctorClicked.getDescripcion());
         startActivity(intent);
+    }
+
+    private void showLoadingIndicator(boolean show) {
+        mProgress.setVisibility(show ? View.VISIBLE : View.GONE);
+        recyclerDoctors.setVisibility(show ? View.GONE : View.VISIBLE);
+    }
+
+    public void emptyList(){
+
+        mEmptyView.setVisibility(View.VISIBLE);
+        mProgress.setVisibility(View.GONE);
+        recyclerDoctors.setVisibility(View.GONE);
+
+    }
+
+    public void dateList(){
+
+        mEmptyView.setVisibility(View.GONE);
+        recyclerDoctors.setVisibility(View.VISIBLE);
     }
 }

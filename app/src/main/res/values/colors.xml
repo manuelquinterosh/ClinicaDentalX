@@ -74,5 +74,8 @@
 
     <color name="bottom_nav_background_menu">#5A5A5A</color>
 
-    
+
+    <color name="colorDentisBackground">#FFDC00</color>
+    <color name="colorPromotionBackground">#779186</color>
+    <color name="colorDentisBackgroundCardview">#75704E</color>
 </resources>

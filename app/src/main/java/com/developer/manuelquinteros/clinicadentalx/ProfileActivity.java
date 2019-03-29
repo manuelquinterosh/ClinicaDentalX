@@ -104,6 +104,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         progress=new ProgressDialog(ProfileActivity.this);
         progress.setMessage("Cargando...");
+        progress.setCancelable(false);
         progress.show();
 
         if (progress != null && progress.isShowing()) {

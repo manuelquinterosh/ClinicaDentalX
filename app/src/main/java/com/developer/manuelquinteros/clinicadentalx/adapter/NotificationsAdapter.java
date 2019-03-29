@@ -2,6 +2,7 @@ package com.developer.manuelquinteros.clinicadentalx.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -79,7 +80,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
         public TextView description;
         public TextView expiryDate;
         public TextView discount;
-        public Button borrar;
+        public FloatingActionButton borrar;
         public CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -88,7 +89,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
             description = (TextView) itemView.findViewById(R.id.text_description);
             expiryDate = (TextView) itemView.findViewById(R.id.text_expiry_date);
             discount = (TextView) itemView.findViewById(R.id.text_discount);
-            borrar = (Button) itemView.findViewById(R.id.btnNotification);
+            borrar = (FloatingActionButton) itemView.findViewById(R.id.btnNotification);
             cardView = (CardView)itemView.findViewById(R.id.card_notification);
         }
     }

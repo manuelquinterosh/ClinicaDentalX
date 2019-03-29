@@ -20,6 +20,14 @@
             android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
+            <TextView
+                android:id="@+id/toolbar_appointment_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mis Citas "
+                android:textColor="@color/white"
+                android:layout_gravity="center" />
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
@@ -31,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        app:backgroundTint="@color/colorPrimary"
         android:layout_margin="16dp"
         app:srcCompat="@android:drawable/ic_input_add"/>
 

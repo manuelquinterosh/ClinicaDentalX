@@ -45,14 +45,6 @@ public class FacebookFragment extends Fragment {
             }
         });
 
-        /** webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setLoadWithOverviewMode(true);
-        webView.getSettings().setUseWideViewPort(true);
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setPluginState(WebSettings.PluginState.ON);
-        webView.setWebViewClient(new WebViewClient());**/
-
-
         // Inflate the layout for this fragment
         return view;
     }
