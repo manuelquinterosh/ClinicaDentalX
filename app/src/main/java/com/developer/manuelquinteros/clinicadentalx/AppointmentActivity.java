@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,7 +43,6 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
     private RequestQueue request;
     private VolleyUse volley;
     private UserSessionManager session;
-    ProgressDialog progress;
     private View mEmptyView;
 
     @Override
@@ -98,9 +98,16 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
                 listAppointment.clear();
                 swipeRefreshLayout.setRefreshing(false);
                 loadAppointment(id);
+
             }
         });
 
+
+      if(listAppointment.isEmpty()){
+            emptyList();
+        }else{
+            dateList();
+        }
 
 
     }
@@ -157,25 +164,13 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
         adapter.swapItems(list);
 
         //Mostrar un mensaje si la lista esta vacía [cuando carga la app]
-        int numItems =  adapter.getItemCount();
+      int numItems =  adapter.getItemCount();
         if(numItems == 0)
             emptyList();
         else
             dateList();
 
-        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-
-            @Override
-            public void onItemRangeChanged(int positionStart, int itemCount) {
-                super.onItemRangeChanged(positionStart, itemCount);
-
-                if(itemCount == 0)
-                    emptyList();
-                else
-                    dateList();
-            }
-
-        });
+        validateEmptyAppointment(adapter);
 
     }
 
@@ -286,4 +281,20 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
     }
 
 
+    private void validateEmptyAppointment(AppointmentAdapter adapter){
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+
+            @Override
+            public void onItemRangeChanged(int positionStart, int itemCount) {
+                super.onItemRangeChanged(positionStart, itemCount);
+
+                if(itemCount == 0)
+                    emptyList();
+                else
+                    dateList();
+            }
+
+        });
+
+    }
 }
